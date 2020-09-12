@@ -5,12 +5,18 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        @user = User.new 
-        if !params[:name].present?
-            redirect_to user_path(@user)
-        else 
-            session[:name] = params[:name]
-            redirect_to user_path(@user)
+        # binding.pry 
+        if !params[:user][:name].present?
+            render "/"
+        else
+            @user = User.find(params[:user][:name])
+            if @user && @user.authenticate(params[:user][:password])
+                session[:user_id] = @user.id 
+                redirect_to user_path(@user)
+                
+            else 
+                render "new"
+            end 
         end 
     end 
 
