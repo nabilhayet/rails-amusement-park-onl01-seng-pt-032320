@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     def create
         @user = User.new 
         if !params[:name].present?
-            redirect_to "home"
+            redirect_to user_path(@user)
         else 
             session[:name] = params[:name]
             redirect_to user_path(@user)
