@@ -19,7 +19,7 @@ class AttractionsController < ApplicationController
         if @attraction.valid?
             @attraction.save
             @user = current_user
-            redirect_to user_path(@user)
+            redirect_to attraction_path(@attraction)
         else
             render "new"
         end 
