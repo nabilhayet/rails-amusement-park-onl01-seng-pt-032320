@@ -8,9 +8,11 @@ class Ride < ActiveRecord::Base
         else 
             self.user.tickets = self.user.tickets - self.attraction.tickets
         end 
+
         if self.user.height < self.attraction.min_height
             puts "Sorry. You are not tall enough to ride the #{self.attraction.name}."
         else 
+            
         end 
             
         if self.user.tickets < self.attraction.tickets && self.user.height < self.attraction.min_height
