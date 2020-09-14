@@ -7,14 +7,25 @@ class RidesController < ApplicationController
         if @ride.valid?
             @ride.save
             @ride.take_ride 
+            @user = @ride.user 
+            @user.save 
             redirect_to user_path(@user)
         else
             render "new"
         end 
+        
+
+        # @ride = Ride.create(
+        #   :user_id => params[:user_id],
+        #   :attraction_id => params[:attraction_id]
+        # )
+        # @message = @ride.take_ride
+        # redirect_to user_path(@ride.user, :message => @message)
+    
     end  
 
     private 
-    
+
     def ride_params
         params.require(:ride).permit(:user_id, :attraction_id)
     end 
