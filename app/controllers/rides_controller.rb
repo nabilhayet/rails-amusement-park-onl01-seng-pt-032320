@@ -9,7 +9,7 @@ class RidesController < ApplicationController
             @message = @ride.take_ride 
             @user = @ride.user 
             @user.save 
-            redirect_to user_path(@user)
+            redirect_to user_path(@user), flash: { message: @message }
         end 
      end 
         

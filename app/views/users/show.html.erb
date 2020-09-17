@@ -10,9 +10,9 @@
 
 
 <% else %>
-<%= @message %> 
+<strong><%= flash[:message] %></strong>
 <p>Name : <%= @user.name %></p>
-<p>happy : <%= @user.happiness %></p>
+<p>happy : <%= @user.mood %></p>
 <p>Mood : <%= @user.nausea %></p>
 <p>Tickets: <%= @user.tickets %></p>
 <p>Height : <%= @user.height %></p>

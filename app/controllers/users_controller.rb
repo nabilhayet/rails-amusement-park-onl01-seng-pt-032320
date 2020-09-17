@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show 
         if is_logged_in?
-            @user = current_user 
+            @user = current_user
         else 
             redirect_to root_path 
         end 
