@@ -6,13 +6,12 @@ class RidesController < ApplicationController
         @ride = Ride.new(ride_params)
         if @ride.valid?
             @ride.save
-            @ride.take_ride 
+            @message = @ride.take_ride 
             @user = @ride.user 
             @user.save 
             redirect_to user_path(@user)
-        else
-            render "new"
         end 
+     end 
         
 
         # @ride = Ride.create(
